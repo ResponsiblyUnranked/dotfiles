@@ -1,19 +1,25 @@
 #!/bin/bash
 
-echo -e "\033[0;32mInstalling Packages (will require sudo) \033[0m"
+echo -e "\033[0;32mInstalling Packages (will require sudo, perhaps even multiple times)\033[0m"
 
 ##### For systems using APT #####
 {{ if (and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.idLike "ubuntu debian")) }}
 
 # Update repos and current packages
+echo -e "\033[0;32mUpdating and Upgrading with apt (may require further user input)\033[0m"
 sudo apt-get update -y
 sudo apt-get upgrade -y
 
+# Install defined packages
+echo -e "\033[0;32mInstalling packages with apt\033[0m"
 {{ range .packages.apt }}
 sudo apt install -y {{ . | quote }}
 {{ end }}
 
 # Clean up APT
+echo -e "\033[0;32mCleaning up apt with 'autoremove'\033[0m"
 sudo apt autoremove -y
 
 {{ end }}
+
+echo -e "\033[0;32mComplete!\033[0m"
