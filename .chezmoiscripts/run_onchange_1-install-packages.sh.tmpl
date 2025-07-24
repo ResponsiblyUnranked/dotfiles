@@ -2,11 +2,18 @@
 
 echo -e "\033[0;32mInstalling Packages (will require sudo) \033[0m"
 
-# For systems using APT
+##### For systems using APT #####
 {{ if (and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.idLike "ubuntu debian")) }}
+
+# Update repos and current packages
+sudo apt-get update -y
+sudo apt-get upgrade -y
 
 {{ range .packages.apt }}
 sudo apt install -y {{ . | quote }}
 {{ end }}
+
+# Clean up APT
+sudo apt autoremove -y
 
 {{ end }}
