@@ -1,0 +1,12 @@
+#!/bin/bash
+
+echo -e "\033[0;32mInstalling Packages (will require sudo) \033[0m"
+
+# For systems using APT
+{{ if (and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.idLike "ubuntu debian")) }}
+
+{{ range .packages.apt }}
+sudo apt install -y {{ . | quote }}
+{{ end }}
+
+{{ end }}
