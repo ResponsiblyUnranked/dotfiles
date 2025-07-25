@@ -11,5 +11,8 @@ if status --is-interactive
 
     # SSH Agent
     fish_ssh_agent
+
+    # Batcat
+    alias bcat="batcat"
 end
 
