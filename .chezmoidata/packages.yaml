@@ -3,3 +3,5 @@ packages:
     - bat
     - fish
     - vim
+  python_versions:
+    - 3.13

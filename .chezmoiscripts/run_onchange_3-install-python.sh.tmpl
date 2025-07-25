@@ -1,0 +1,5 @@
+#!/bin/bash
+{{ range .packages.python_versions }}
+echo -e "\033[0;32mInstalling Python Version {{ . }}\033[0m"
+fish -c 'pyenv install {{ . | quote }}'
+{{ end }}
