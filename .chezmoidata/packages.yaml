@@ -2,6 +2,7 @@ packages:
   debian_apt:
     - bat
     - fish
+    - restic
     - vim
     # For compiling Python with Pyenv
     - build-essential
@@ -17,7 +18,6 @@ packages:
     - libssl-dev
     - llvm
     - make
-    - python-openssl
     - tk-dev
     - wget
     - xz-utils
