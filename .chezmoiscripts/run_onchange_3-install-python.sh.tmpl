@@ -3,3 +3,7 @@
 echo -e "\033[0;32mInstalling Python Version {{ . }}\033[0m"
 fish -c 'pyenv install {{ . | quote }}'
 {{ end }}
+
+echo -e "\033[0;32mSetting Global Python to {{ .packages.global_python }}\033[0m"
+fish -c 'pyenv global {{ .packages.global_python }}'
+

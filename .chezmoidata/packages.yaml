@@ -3,5 +3,25 @@ packages:
     - bat
     - fish
     - vim
+    # For compiling Python with Pyenv
+    - build-essential
+    - curl
+    - git
+    - libbz2-dev
+    - libffi-dev
+    - liblzma-dev
+    - libncurses5-dev
+    - libncursesw5-dev 
+    - libreadline-dev
+    - libsqlite3-dev
+    - libssl-dev
+    - llvm
+    - make
+    - python-openssl
+    - tk-dev
+    - wget
+    - xz-utils
+    - zlib1g-dev
   python_versions:
     - 3.13
+  global_python: 3.13
