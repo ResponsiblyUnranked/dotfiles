@@ -1,5 +1,8 @@
 # Fish
 bind \cj accept-autosuggestion
 
-# Pyenv
-pyenv init - fish | source
+if status --is-interactive
+    # Pyenv
+    pyenv init - fish | source
+end
+
