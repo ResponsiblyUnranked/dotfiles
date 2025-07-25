@@ -1,4 +1,5 @@
 packages:
-  apt:
+  debian_apt:
     - bat
     - fish
+    - vim
