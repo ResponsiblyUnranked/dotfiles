@@ -1,13 +1,17 @@
-#!/bin/bash
+#!/usr/bin/fish
+
+# Configure Pyenv in Fish
+fish_add_path $PYENV_ROOT/bin
+pyenv init - fish | source
 
 # Install Python with Pyenv
 {{ range .packages.python_versions }}
 echo -e "\033[0;32mInstalling Python Version {{ . }}\033[0m"
-fish -c 'pyenv install {{ . | quote }}'
+pyenv install {{ . | quote }}
 {{ end }}
 
 echo -e "\033[0;32mSetting Global Python to {{ .packages.global_python }}\033[0m"
-fish -c 'pyenv global {{ .packages.global_python }}'
+pyenv global {{ .packages.global_python }}
 
 # Install Poetry
 echo -e "\033[0;32mInstalling Poetry {{ .packages.global_python }}\033[0m"
