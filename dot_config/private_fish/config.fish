@@ -5,5 +5,8 @@ if status --is-interactive
     # Pyenv
     fish_add_path $PYENV_ROOT/bin
     pyenv init - fish | source
+
+    # Poetry
+    fish_add_path ~/.local/bin
 end
 

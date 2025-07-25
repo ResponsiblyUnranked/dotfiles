@@ -1,4 +1,6 @@
 #!/bin/bash
+
+# Install Python with Pyenv
 {{ range .packages.python_versions }}
 echo -e "\033[0;32mInstalling Python Version {{ . }}\033[0m"
 fish -c 'pyenv install {{ . | quote }}'
@@ -7,3 +9,10 @@ fish -c 'pyenv install {{ . | quote }}'
 echo -e "\033[0;32mSetting Global Python to {{ .packages.global_python }}\033[0m"
 fish -c 'pyenv global {{ .packages.global_python }}'
 
+# Install Poetry
+echo -e "\033[0;32mInstalling Poetry {{ .packages.global_python }}\033[0m"
+curl -sSL https://install.python-poetry.org | python -
+
+echo 'export PATH="~/.local/bin:$PATH"' >> ~/.bashrc
+echo 'export PATH="~/.local/bin:$PATH"' >> ~/.profile
+echo 'export PATH="~/.local/bin:$PATH"' >> ~/.bash_profile
