@@ -8,5 +8,8 @@ if status --is-interactive
 
     # Poetry
     fish_add_path ~/.local/bin
+
+    # SSH Agent
+    fish_ssh_agent
 end
 
