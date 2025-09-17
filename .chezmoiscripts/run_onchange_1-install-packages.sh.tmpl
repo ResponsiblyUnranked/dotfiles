@@ -2,7 +2,9 @@
 
 echo -e "\033[0;32mInstalling Packages (will require sudo, perhaps even multiple times)\033[0m"
 
-##### For systems using APT #####
+
+
+########## For systems using APT ##########
 {{ if (and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.idLike "ubuntu debian")) }}
 
 # Update repos and current packages
@@ -41,5 +43,28 @@ echo -e "\033[0;32mCleaning up apt with 'autoremove'\033[0m"
 sudo apt autoremove -y
 
 {{ end }}
+########## APT END ##########
+
+
+########## For MacOS ##########
+{{ if eq .chezmoi.os "darwin" }}
+
+# Update Brew and Packages
+echo -e "\033[0;Updating Brew\033[0m"
+brew update
+brew upgrade
+
+# Install brew packages
+echo -e "\033[0;32mInstalling packages with brew\033[0m"
+{{ range .packages.mac_brew }}
+brew install {{ . | quote }}
+{{ end }}
+
+echo -e "\033[0;Change Default Shell to Fish\033[0m"
+chsh -s /usr/bin/fish
+
+{{ end }}
+########## MacOS END ##########
+
 
 echo -e "\033[0;32mFinished installing packages!\033[0m"

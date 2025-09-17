@@ -22,6 +22,11 @@ packages:
     - wget
     - xz-utils
     - zlib1g-dev
+  mac_brew:
+    - bat
+    - fish
+    - restic
+    - wget
   python_versions:
     - 3.13
   global_python: 3.13
