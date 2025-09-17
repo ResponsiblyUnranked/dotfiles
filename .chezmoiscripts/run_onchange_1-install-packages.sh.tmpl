@@ -50,7 +50,7 @@ sudo apt autoremove -y
 {{ if eq .chezmoi.os "darwin" }}
 
 # Update Brew and Packages
-echo -e "\033[0;Updating Brew\033[0m"
+echo -e "\033[0;32mUpdating Brew\033[0m"
 brew update
 brew upgrade
 
@@ -60,7 +60,8 @@ echo -e "\033[0;32mInstalling packages with brew\033[0m"
 brew install {{ . | quote }}
 {{ end }}
 
-echo -e "\033[0;Change Default Shell to Fish\033[0m"
+echo -e "\033[0;32mChange Default Shell to Fish\033[0m"
+echo 'usr/bin/fish' | sudo tee -a /etc/shells
 chsh -s /usr/bin/fish
 
 {{ end }}
