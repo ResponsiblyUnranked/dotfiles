@@ -1,7 +1,7 @@
-{{ if (and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.idLike "ubuntu debian")) }}
-#!{{ .os_variables.fish_path.linux }}
-{{ else if eq .chezmoi.os "darwin" }}
-#!{{ .os_variables.fish_path.mac_os }}
+{{- if (and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.idLike "ubuntu debian")) -}}
+#!{{- .os_variables.fish_path.linux -}}
+{{- else if eq .chezmoi.os "darwin" -}}
+#!{{- .os_variables.fish_path.mac_os -}}
 {{ end }}
 
 # Configure Pyenv in Fish
