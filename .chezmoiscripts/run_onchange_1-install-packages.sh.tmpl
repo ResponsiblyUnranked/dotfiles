@@ -61,11 +61,13 @@ brew install {{ . | quote }}
 {{ end }}
 
 echo -e "\033[0;32mChange Default Shell to Fish\033[0m"
-echo 'usr/bin/fish' | sudo tee -a /etc/shells
-chsh -s /usr/bin/fish
+echo '{{ .os_variables.fish_path.mac_os }}' | sudo tee -a /etc/shells
+chsh -s {{ .os_variables.fish_path.mac_os }}
 
 {{ end }}
 ########## MacOS END ##########
 
 
 echo -e "\033[0;32mFinished installing packages!\033[0m"
+
+

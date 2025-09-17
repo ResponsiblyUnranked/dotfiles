@@ -1,3 +1,7 @@
-#!/usr/bin/fish
+{{ if (and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.idLike "ubuntu debian")) }}
+#!{{ .os_variables.fish_path.linux }}
+{{ else if eq .chezmoi.os "darwin" }}
+#!{{ .os_variables.fish_path.mac_os }}
+{{ end }}
 
 wget https://gitlab.com/kyb/fish_ssh_agent/raw/master/functions/fish_ssh_agent.fish -P ~/.config/fish/functions/

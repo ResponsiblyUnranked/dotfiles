@@ -1,0 +1,4 @@
+os_variables:
+  fish_path:
+    linux: '/usr/bin/fish'
+    mac_os: '/opt/homebrew/bin/fish'
