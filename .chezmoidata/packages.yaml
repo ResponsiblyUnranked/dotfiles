@@ -27,6 +27,16 @@ packages:
     - fish
     - restic
     - wget
+    # For compiling Python with Pyenv
+    - libb2
+    - openssl
+    - pkgconfig
+    - readline
+    - sqlite3
+    - tcl-tk
+    - xz
+    - zlib
+    - zstd
   python_versions:
     - 3.13
   global_python: 3.13
